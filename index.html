@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>非公式TRPGガイド</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (アイコン用) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2C4A/gI/d+oX71uJ5xN0I5s5O9U5Q6a8uUvA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            @apply bg-slate-50 text-slate-800;
+        }
+        .poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* 選択中のタブのスタイルを強調 */
+        .tab-button.active {
+            @apply border-orange-500 text-orange-600 bg-orange-100 font-bold;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        /* システム紹介カードのホバーエフェクト */
+        .card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        /* タブを常に上部に固定するためのスタイル */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        /* 以前の階層図のCSSは、画像に置き換えられたため削除しました。 */
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="container mx-auto p-4 md:p-8 lg:max-w-screen-lg xl:max-w-screen-xl">
+
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-orange-600 mb-2">非公式TRPGガイド</h1>
+            <p class="text-slate-500">雪哉作・非公式ガイドへようこそ！</p>
+            <div class="mt-2 text-[15px] md:text-[18px] text-red-700 font-extrabold">
+                <p>※注意※</p>
+                <p>これは非公式ガイドです。雪哉(せつや)の許可なく他の人に教える、Twitterで呟くなどの行為はお辞めください。</p>
+                <p>TRPG、マダミス共にネタバレ厳禁！なシステムとなっております！</p>
+            </div>
+        </header>
+
+        <!-- タブナビゲーション (粘着固定) -->
+        <nav class="sticky-nav flex flex-wrap justify-center border-b-2 border-slate-200 rounded-xl mb-8">
+            <button class="tab-button text-lg font-semibold py-3 px-6 border-b-4 border-transparent hover:bg-orange-100 transition" data-tab="intro">はじめに</button>
+            <button class="tab-button text-lg font-semibold py-3 px-6 border-b-4 border-transparent hover:bg-orange-100 transition" data-tab="comparison">TRPG と マダミス</button>
+            <button class="tab-button text-lg font-semibold py-3 px-6 border-b-4 border-transparent hover:bg-orange-100 transition" data-tab="getting-started">使用ツール</button>
+            <button class="tab-button text-lg font-semibold py-3 px-6 border-b-4 border-transparent hover:bg-orange-100 transition" data-tab="glossary">用語集</button>
+            <button class="tab-button text-lg font-semibold py-3 px-6 border-b-4 border-transparent hover:bg-orange-100 transition" data-tab="systems">システム紹介</button>
+        </nav>
+
+        <!-- CS作成ショートカットボタン (水色系) -->
+        <button id="cs-creation-shortcut" class="w-full bg-cyan-500 text-white py-4 px-6 mb-8 rounded-xl font-bold text-xl shadow-lg hover:bg-cyan-600 transition transform hover:scale-[1.01] active:scale-[0.99]">
+            <i class="fas fa-scroll mr-3"></i>
+            すぐに始める！キャラクターシート（CS）作成ガイドへ
+        </button>
+
+        <main>
+            <!-- はじめに (intro) -->
+            <section id="intro" class="content-section">
+                <!-- 白背景を削除し、パディングのみ維持 -->
+                <div class="p-8">
+                    <h2 class="text-3xl font-bold text-orange-600 mb-4">💡 TRPGってなに？</h2>
+                    
+                    <!-- ★★★ 画像に置き換えられたセクション ★★★ -->
+                    <div class="p-4 bg-slate-100 rounded-lg mb-6 border-2 border-slate-200">
+                        <h3 class="text-xl font-bold mb-4 text-center">ゲームジャンルの関係性</h3>
+                        <!-- 画像ファイルのURLをここに設定してください -->
+                        <img src="your-hierarchy-diagram.png" 
+                             alt="ゲームジャンルの関係性図：テーブルゲームからTRPG、CoCへの階層図" 
+                             class="w-full h-auto max-w-full mx-auto block rounded-lg"
+                             onerror="this.onerror=null;this.src='https://placehold.co/800x450/ccc/000?text=Diagram+Placeholder';">
+                    </div>
+                    <!-- ★★★ 画像に置き換えられたセクション 終了 ★★★ -->
+
+                    <p class="mb-4">テーブルトークロールプレイングゲームの略称です</p>
+                    <p class="mb-4">シナリオを進行するGM（ゲームマスター）とPL（プレイヤー）に分かれてセッションを行います</p>
+                    <p class="mb-4">RPGの中にも様々な種類があるように、TRPGの中にも「クトゥルフ神話TRPG」「アリアンロッド」「ダブルクロス」など多様なシステム（ゲームソフトのようなもの）が存在し、それぞれ世界観や遊び方が大きく異なります</p>
+                    <p class="mb-4">基本的に紙、筆記用具、ダイスを用いて遊び、ゲームソフトの代わりに「ルールブック（通称：ルルブ）」を使用します</p>
+                    <p class="mb-4">最近ではインターネットを使ったオンラインセッションが盛んで、PCやスマホさえ持っていれば気軽に遊ぶことができます</p>
+                    <p>キャラクターは基本的に自分で作り、行動の成功・失敗はダイスの目に委ねられます</p>
+                </div>
+            </section>
+
+            <!-- TRPG と マダミス (comparison) -->
+            <section id="comparison" class="content-section">
+                   <!-- 白背景を削除し、パディングのみ維持 -->
+                   <div class="p-8">
+                        <h2 class="text-3xl font-bold text-orange-600 mb-6 text-center">TRPG と マーダーミステリー</h2>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="border-2 border-orange-200 p-6 rounded-lg bg-white shadow-sm">
+                                <h3 class="text-2xl font-bold text-center mb-4 text-orange-700">TRPG</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start"><span class="text-orange-500 font-bold mr-2">▶</span> 自分でキャラクターを作成することが多い</li>
+                                    <li class="flex items-start"><span class="text-orange-500 font-bold mr-2">▶</span> 行動の成否をダイスで決める</li>
+                                    <li class="flex items-start"><span class="text-orange-500 font-bold mr-2">▶</span> 自由度などはシステムやシナリオ次第。CoCは自由度が高く協力型が多い傾向</li>
+                                    <li class="flex items-start"><span class="text-orange-500 font-bold mr-2">▶</span> ルールブックが必要なことが多い</li>
+                                </ul>
+                            </div>
+                            <div class="border-2 border-orange-200 p-6 rounded-lg bg-white shadow-sm">
+                                <h3 class="text-2xl font-bold text-center mb-4 text-orange-700">マーダーミステリー</h3>
+                                 <ul class="space-y-3">
+                                    <li class="flex items-start"><span class="text-orange-500 font-bold mr-2">▶</span> 配布されたキャラクター設定に従ってプレイする</li>
+                                    <li class="flex items-start"><span class="text-orange-500 font-bold mr-2">▶</span> ダイスはあまり使わず、会話と推理が中心</li>
+                                    <li class="flex items-start"><span class="text-orange-500 font-bold mr-2">▶</span> 個々の使命や目的達成を目指すことが多い</li>
+                                    <li class="flex items-start"><span class="text-orange-500 font-bold mr-2">▶</span> ルールブックは不要</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+
+            <!-- 使用ツール (getting-started) -->
+            <section id="getting-started" class="content-section">
+                <!-- 白背景を削除し、パディングのみ維持 -->
+                <div class="p-8">
+                    <h2 class="text-3xl font-bold text-orange-600 mb-6">使用ツール</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">必要なもの</h3>
+                            <div class="bg-orange-50 p-4 rounded-lg">
+                                <p class="font-bold text-lg">【必須】</p>
+                                <p class="mb-2">PC、スマホ、タブレットのいずれか</p>
+                                <p class="font-bold text-lg">【推奨】</p>
+                                <p>ルールブック。CoCはルルブがなくてもある程度作成可能なため、初心者に限り未所持も歓迎しています。今後も続けたいと思ったら購入しよう!</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">ルールブックの選び方 (CoC)</h3>
+                            <div class="bg-orange-50 p-4 rounded-lg">
+                                <p class="mb-2"><span class="font-bold">【6版】</span> 赤と緑の表紙。Amazonで6490円</p>
+                                <p><span class="font-bold">【7版】</span> 黄色と赤の表紙。新クトゥルフ神話TRPG。無料のクイックスタートガイドやサブスクアプリもあります</p>
+                                <p class="mt-2 text-sm text-red-600">※サプリメント（DLCのようなもの）と間違えないように注意！</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="text-2xl font-bold mb-4">雪哉がよく使うツール</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <a href="https://ccfolia.com/" target="_blank" class="card bg-blue-100 p-4 rounded-lg flex flex-col items-center justify-center text-center hover:bg-blue-200 transition">
+                                <i class="fas fa-desktop text-4xl text-blue-700 mb-2"></i>
+                                <h4 class="font-bold text-lg text-blue-800">ココフォリア</h4>
+                                <p class="text-sm text-slate-700 mt-1">オンラインセッション用プラットフォーム</p>
+                            </a>
+                            <a href="https://iachara.com/" target="_blank" class="card bg-green-100 p-4 rounded-lg flex flex-col items-center justify-center text-center hover:bg-green-200 transition">
+                                <i class="fas fa-file-alt text-4xl text-green-700 mb-2"></i>
+                                <h4 class="font-bold text-lg text-green-800">いあきゃら</h4>
+                                <p class="text-sm text-slate-700 mt-1">キャラクターシート作成ツール</p>
+                            </a>
+                            <a href="https://10000-tools.com/dice/" target="_blank" class="card bg-purple-100 p-4 rounded-lg flex flex-col items-center justify-center text-center hover:bg-purple-200 transition">
+                                <i class="fas fa-dice text-4xl text-purple-700 mb-2"></i>
+                                <h4 class="font-bold text-lg text-purple-800">キャラシダイス</h4>
+                                <p class="text-sm text-slate-700 mt-1">CoC6版のキャラ作成支援</p>
+                            </a>
+                            <a href="https://fusetter.com/" target="_blank" class="card bg-pink-100 p-4 rounded-lg flex flex-col items-center justify-center text-center hover:bg-pink-200 transition">
+                                <i class="fas fa-lock text-4xl text-pink-700 mb-2"></i>
+                                <h4 class="font-bold text-lg text-pink-800">ふせったー</h4>
+                                <p class="text-sm text-slate-700 mt-1">ネタバレ防止ツール</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 判定・行動 (status-explanation) -->
+            <section id="status-explanation" class="content-section">
+                <!-- 白背景を削除し、パディングのみ維持 -->
+                <div class="p-8">
+                    <h2 class="text-3xl font-bold text-orange-600 mb-6">CoCの基本的な行動と判定</h2>
+                    <p class="mb-6 text-slate-600">キャラクターが行動を起こす際の流れと、ダイス判定について簡単に説明します。</p>
+
+                    <div class="space-y-6">
+                        <div class="p-6 bg-orange-50 rounded-xl border-l-4 border-orange-500 shadow">
+                            <h3 class="text-2xl font-bold text-orange-800 mb-2 flex items-center"><i class="fas fa-dice-one mr-2"></i> 判定の流れ</h3>
+                            <ol class="list-decimal list-inside space-y-2 ml-4">
+                                <li class="text-slate-700"><span class="font-bold">PLが行動を宣言:</span> 「〇〇を調べたい」「敵に攻撃したい」など、PCの行動を宣言します。</li>
+                                <li class="text-slate-700"><span class="font-bold">KPが判定を要求:</span> その行動に必要とされる【技能】や【ステータス】を指定します。</li>
+                                <li class="text-slate-700"><span class="font-bold">PLがダイスを振る:</span> 1D100を振り、**技能値以下**の目が出れば成功です。</li>
+                                <li class="text-slate-700"><span class="font-bold">KPが結果を伝える:</span> 成功/失敗に応じた結果をKPが描写します。</li>
+                            </ol>
+                        </div>
+
+                        <div class="p-6 bg-slate-100 rounded-xl border-l-4 border-slate-400 shadow">
+                            <h3 class="text-2xl font-bold text-slate-700 mb-2 flex items-center"><i class="fas fa-check-circle mr-2"></i> 成功度の種類 (6版の場合)</h3>
+                            <ul class="space-y-2 ml-4">
+                                <li class="text-slate-700"><span class="font-bold text-green-700">クリティカル (スペシャル):</span> 1-5の目。大成功。有利な結果になったり、特別な情報が得られたりします。</li>
+                                <li class="text-slate-700"><span class="font-bold text-blue-700">成功:</span> 技能値以下の目（クリティカル以外）。行動が成功します。</li>
+                                <li class="text-slate-700"><span class="font-bold text-red-700">失敗:</span> 技能値より大きい目（ファンブル以外）。行動が失敗します。</li>
+                                <li class="text-slate-700"><span class="font-bold text-purple-700">ファンブル (致命的失敗):</span> 96-100の目。大失敗。不利な状況に陥ったり、予期せぬトラブルが起きたりします。</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="p-6 bg-red-50 rounded-xl border-l-4 border-red-500 shadow">
+                            <h3 class="text-2xl font-bold text-red-700 mb-2 flex items-center"><i class="fas fa-heart-broken mr-2"></i> SANチェック</h3>
+                            <p class="text-slate-700">クトゥルフ神話の存在など、精神的にショッキングな出来事に遭遇した際に行われます。</p>
+                            <p class="mt-2 text-slate-700">SAN値の喪失はPCが狂気に陥る原因になります。失うSANの数はイベントによって異なり、1D6や0/1D4などで表記されます。</p>
+                            <p class="text-sm mt-2 text-red-600">※0/1D4の場合、SANチェックに成功すれば0点、失敗すれば1D4点のSANを失います。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CS作成 (cs-creation) -->
+            <section id="cs-creation" class="content-section">
+                <!-- 白背景を削除し、パディングのみ維持 -->
+                <div class="p-8">
+                    <h2 class="text-3xl font-bold text-orange-600 mb-6">CoCキャラクターシート（CS）作成ガイド</h2>
+                    <p class="mb-6 text-slate-600">キャラクターの能力を決定する主な**ステータス**と、そのダイス値についてです。CoCでは、これらの数値が行動の成否を左右します。</p>
+
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-slate-100 p-4 rounded-xl shadow-sm border-l-4 border-indigo-500">
+                            <h3 class="text-xl font-bold text-indigo-700 mb-1">3d6 (STR, CON, POW, DEX, APP)</h3>
+                            <p class="text-gray-700">最低<span class="font-bold">3</span>、最高<span class="font-bold">18</span>、平均<span class="font-bold">10.5</span></p>
+                            <p class="text-sm text-gray-600 mt-1">3～8が低い、9～12が普通、13以上は高めのイメージ。</p>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded-xl shadow-sm border-l-4 border-indigo-500">
+                            <h3 class="text-xl font-bold text-indigo-700 mb-1">2d6+6 (SIZ, INT)</h3>
+                            <p class="text-gray-700">最低<span class="font-bold">8</span>、最高<span class="font-bold">18</span>、平均<span class="font-bold">13</span></p>
+                            <p class="text-sm text-gray-600 mt-1">8～11は低い、12～14が普通、15以上は高めのイメージ。</p>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded-xl shadow-sm border-l-4 border-indigo-500">
+                            <h3 class="text-xl font-bold text-indigo-700 mb-1">3D6+3 (EDU)</h3>
+                            <p class="text-gray-700">最低<span class="font-bold">6</span>、最高<span class="font-bold">21</span>、平均<span class="font-bold">13.5</span></p>
+                            <p class="text-sm text-gray-600 mt-1">EDU+6歳が最低年齢。EDUが6ならどれだけ低くとも12歳。</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-orange-700 mb-4 border-b pb-2">主要ステータス</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="p-6 bg-slate-100 rounded-lg border-2 border-slate-200">
+                            <h4 class="text-xl font-bold text-orange-800 mb-1">STR (筋力)</h4>
+                            <p class="text-sm text-slate-700">ドアをこじ開けたり、重いものを持ち上げたりする際に使用。戦闘時のダメージボーナスにも影響。</p>
+                        </div>
+                        <div class="p-6 bg-slate-100 rounded-lg border-2 border-slate-200">
+                            <h4 class="text-xl font-bold text-orange-800 mb-1">CON (体力)</h4>
+                            <p class="text-sm text-slate-700">健康状態、活気等。毒や溺れた時の抵抗等にも。HPの算出にも影響。</p>
+                        </div>
+                        <div class="p-6 bg-slate-100 rounded-lg border-2 border-slate-200">
+                            <h4 class="text-xl font-bold text-orange-800 mb-1">POW (精神力)</h4>
+                            <p class="text-sm text-slate-700">意志の力。高ければ高いほど魔術的素養が高い。MPや SAN の算出に使用。</p>
+                        </div>
+                        <div class="p-6 bg-slate-100 rounded-lg border-2 border-slate-200">
+                            <h4 class="text-xl font-bold text-orange-800 mb-1">DEX (敏捷性)</h4>
+                            <p class="text-sm text-slate-700">機敏さや器用さ。回避や行動順、逃走時に使用。</p>
+                        </div>
+                        <div class="p-6 bg-slate-100 rounded-lg border-2 border-slate-200">
+                            <h4 class="text-xl font-bold text-orange-800 mb-1">APP (外見)</h4>
+                            <p class="text-sm text-slate-700">容貌や好感度に影響。交渉技能と組み合わせることもできるが、あまり使い道はない。</p>
+                        </div>
+                        <div class="p-6 bg-slate-100 rounded-lg border-2 border-slate-200">
+                            <h4 class="text-xl font-bold text-orange-800 mb-1">SIZ (体格)</h4>
+                            <p class="text-sm text-slate-700">身長や体重といった体の大きさ。HPに影響。</p>
+                        </div>
+                        <div class="p-6 bg-slate-100 rounded-lg border-2 border-slate-200">
+                            <h4 class="text-xl font-bold text-orange-800 mb-1">INT (知性)</h4>
+                            <p class="text-sm text-slate-700">どれだけ学べるか、ちゃんと覚えているか。アイデア判定に使用。興味ポイント算出にも使用。</p>
+                        </div>
+                        <div class="p-6 bg-slate-100 rounded-lg border-2 border-slate-200">
+                            <h4 class="text-xl font-bold text-orange-800 mb-1">EDU (教育)</h4>
+                            <p class="text-sm text-slate-700">キャラクターの学歴や知識量。知識判定や職業ポイントの算出に使用。</p>
+                        </div>
+                        <div class="p-6 bg-slate-100 rounded-lg border-2 border-slate-200">
+                            <h4 class="text-xl font-bold text-orange-800 mb-1">HP / MP / 初期SAN</h4>
+                            <p class="text-sm text-slate-700">生命力/魔術のエネルギー/精神的な安定度。主にCON, POW, SIZから算出されます。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 用語集 (glossary) -->
+            <section id="glossary" class="content-section">
+                <!-- 白背景を削除し、パディングのみ維持 -->
+                <div class="p-8">
+                    <h2 class="text-3xl font-bold text-orange-600 mb-4">頻出用語集</h2>
+                    <p class="mb-6 text-slate-600">TRPG、特にCoC（クトゥルフ神話TRPG）でよく使われる用語まとめ。多くは非公式な用語</p>
+                    <input type="text" id="glossary-search" placeholder="用語を検索..." class="w-full p-3 mb-6 border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition">
+                    <div id="glossary-list" class="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
+                        </div>
+                </div>
+            </section>
+
+            <!-- システム紹介 (systems) -->
+            <section id="systems" class="content-section">
+                <!-- 白背景を削除し、パディングのみ維持 -->
+                <div class="p-8">
+                    <h2 class="text-3xl font-bold text-orange-600 mb-6">システム紹介</h2>
+                    <p class="mb-8 text-slate-600">私が特によくプレイする、魅力的なTRPGシステムを紹介します。それぞれ全く異なる体験ができますよ！</p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <a href="https://product.kadokawa.co.jp/cthulhu/" target="_blank" class="card bg-slate-100 p-6 rounded-lg border border-slate-200 hover:bg-blue-50 transition">
+                            <h3 class="text-2xl font-bold text-blue-800 mb-2">クトゥルフ神話TRPG (CoC)</h3>
+                            <p class="text-sm font-semibold text-blue-600 mb-3">コズミックホラー</p>
+                            <p class="text-slate-700">宇宙的恐怖に立ち向かう一般人「探索者」となり、神話的存在の脅威に挑みます。謎を解き明かし生き残ることが目的。ロスト（死亡や発狂）の危険が常に伴う緊張感が特徴。</p>
+                        </a>
+                        <a href="https://www.fear.co.jp/dbx3rd/" target="_blank" class="card bg-slate-100 p-6 rounded-lg border border-slate-200 hover:bg-red-50 transition">
+                            <h3 class="text-2xl font-bold text-red-800 mb-2">ダブルクロス The 3rd Edition</h3>
+                            <p class="text-sm font-semibold text-red-600 mb-3">異能力バトル</p>
+                            <p class="text-slate-700">異能力者となり、バトルを繰り広げます。派手な異能力バトルを楽しみたい人におすすめ。ロストすることはほとんどありません。</p>
+                        </a>
+                        <a href="https://bouken.jp/pd/san/" target="_blank" class="card bg-slate-100 p-6 rounded-lg border border-slate-200 hover:bg-slate-200 transition">
+                            <h3 class="text-2xl font-bold text-slate-700 mb-2">インセイン</h3>
+                            <p class="text-sm font-semibold text-slate-500 mb-3">マルチジャンルホラー</p>
+                            <p class="text-slate-700">生き死によりも「使命達成」に重きを置くホラーRPG。各プレイヤーに秘密の使命が与えられ、疑心暗鬼や狂気が渦巻くドラマが展開。CoCよりもインモラルでサイコなシナリオが多いのが特徴</p>
+                        </a>
+                        <a href="https://bouken.jp/pd/sg/" target="_blank" class="card bg-slate-100 p-6 rounded-lg border border-slate-200 hover:bg-slate-300 transition">
+                            <h3 class="text-2xl font-bold text-slate-700 mb-2">シノビガミ</h3>
+                            <p class="text-sm font-semibold text-slate-500 mb-3">忍者PVP</p>
+                            <p class="text-slate-700">現代に生きる忍者「シノビ」となり、与えられた使命の達成を目指します。プレイヤー同士で協力することもあれば、敵対して戦闘になることも（PvP）。忍者になりきって駆け引きを楽しみたい人におすすめ</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    <script>
+        // DOM要素の取得
+        const tabs = document.querySelectorAll('.tab-button');
+        const contents = document.querySelectorAll('.content-section');
+        // HTMLに存在しない要素に関連する変数は削除
+        
+        let lastGeneratedNames = [];
+
+        // 用語集データ
+        const glossaryData = [
+            { term: '卓、同卓', reading: 'たく、どうたく', description: '卓はセッションのこと。同卓は一緒にセッションに参加した人々のこと。' },
+            { term: 'PL、PC', reading: 'ぴーえる、ぴーしー', description: 'PLはプレイヤー、PCはプレイヤーキャラクターのこと。PCはCoCでは「探索者」と呼ばれる。' },
+            { term: 'KP、GM', reading: 'きーぱー、じーえむ', description: 'ゲームマスターのこと。KPはCoC特有の呼び方。他のシステムではGMが一般的。' },
+            { term: 'KPC', reading: 'けーぴーしー', description: 'KPが操作するPC。NPCとは異なり、物語に深く関わるパートナー的な存在。' },
+            { term: '推奨技能', reading: 'すいしょうぎのう', description: 'そのシナリオで使用する機会が多い、あるいは重要な情報に繋がりやすい技能。' },
+            { term: '三大探索技能', reading: 'さんだいたんさくぎのう', description: '【目星/聞き耳/図書館】のこと。あらゆるシナリオで頻繁に使用される。' },
+            { term: 'ロスト率', reading: 'ろすとりつ', description: 'PCが死亡、または再起不能な狂気に陥る確率のこと。' },
+            { term: 'HO ', reading: 'はんどあうと', description: 'キャラクターに与えられる事前設定。他PLに公開できない「秘匿HO」もある。' },
+            { term: 'シティシナリオ', reading: 'してぃしなりお', description: '街全体など、広い範囲を舞台に調査を進めるシナリオ形式。' },
+            { term: 'クローズドシナリオ', reading: 'くろーずどしなりお', description: '館など、限られた空間を舞台に探索するシナリオ形式。脱出ゲームに近い。' },
+            { term: 'リアルINT', reading: 'りあるいんと', description: 'PCの知性（INT）ではなく、PL自身のひらめきや推理力が試されること。' },
+            { term: 'PvP', reading: 'ぴーぶいぴー', description: 'プレイヤー vs プレイヤーの略。PL間で敵対する状況のこと。' },
+            { term: 'テキセ、ボイセ', reading: 'てきせ、ぼいせ', description: 'テキストセッション、ボイスセッションの略。RPを文字で行うか、声で行うかの違い。' },
+            { term: '1d100', reading: 'いちでぃーひゃく', description: '100面ダイスを1個振る、という指示。TRPGの基本。2d6なら6面ダイスを2個振る' },
+            { term: '伏せ、ふせったー', reading: 'ふせ、ふせったー', description: 'ネタバレ防止ツール「ふせったー」のこと。シナリオの感想を投稿する際に使う。' },
+        ];
+
+        // 用語集の表示関数
+        function renderGlossary(filter = '') {
+            const listElement = document.getElementById('glossary-list');
+            listElement.innerHTML = '';
+            const filteredData = glossaryData.filter(item => 
+                item.term.toLowerCase().includes(filter.toLowerCase()) || 
+                item.reading.includes(filter)
+            );
+
+            if (filteredData.length === 0) {
+                listElement.innerHTML = `<p class="text-slate-500">該当する用語が見つかりません。</p>`;
+                return;
+            }
+
+            filteredData.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'glossary-item border-l-4 border-orange-300 pl-4 py-2 bg-slate-50 rounded-r-lg';
+                div.innerHTML = `
+                    <h4 class="font-bold text-lg text-orange-800">${item.term} <span class="text-sm font-normal text-slate-500 ml-2">${item.reading}</span></h4>
+                    <p class="text-slate-600">${item.description}</p>
+                `;
+                listElement.appendChild(div);
+            });
+        }
+
+        // セクションを切り替える汎用関数
+        function activateSection(targetTabId) {
+            // 1. 全てのタブとコンテンツを非アクティブにする
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+
+            // 2. 目標のコンテンツをアクティブにする
+            const targetContent = document.getElementById(targetTabId);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+
+            // 3. (オプション): 対応するタブをハイライトする (ナビゲーションに残っている場合)
+            const targetTab = document.querySelector(`.tab-button[data-tab="${targetTabId}"]`);
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+        }
+        
+        // 初期設定
+        document.addEventListener('DOMContentLoaded', () => {
+            // 初期タブ設定
+            const initialTabButton = document.querySelector('.tab-button[data-tab="intro"]');
+            if (initialTabButton) {
+                activateSection('intro'); // 初期表示は'intro'
+            }
+            renderGlossary();
+
+            // タブ切り替え
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    activateSection(tab.dataset.tab);
+                    // タブ切り替え時にスムーズにトップへスクロール
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+
+            // CS作成ショートカットのリスナーを追加
+            const csCreationShortcut = document.getElementById('cs-creation-shortcut');
+            if (csCreationShortcut) {
+                csCreationShortcut.addEventListener('click', () => {
+                    activateSection('cs-creation');
+                    // スクロールをスムーズにトップに戻す
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // 用語集検索
+            const searchInput = document.getElementById('glossary-search');
+            if(searchInput){ // 検索インプットが存在する場合のみリスナーを設定
+                searchInput.addEventListener('input', (e) => {
+                    renderGlossary(e.target.value);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
