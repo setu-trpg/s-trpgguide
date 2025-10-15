@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 検索エンジンに登録されないようにする設定（重要） -->
+    <meta name="robots" content="noindex">
+    <title>非公式TRPGガイド - TOP</title>
+    <!-- Google Fonts: Montserrat (タイトル用) と Noto Sans JP (本文用) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* グローバル設定 */
+        body {
+            /* 【修正】背景を単色の白に変更しました */
+            background: #ffffff; 
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #333333;
+            margin: 0;
+            padding: 30px 0; 
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        /* タイトルセクション */
+        .header-content {
+            margin-bottom: 10px; 
+            text-align: center;
+            padding: 0 20px; 
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif; 
+            color: #ff7733; 
+            font-size: clamp(3.5rem, 12vw, 5.5rem);
+            font-weight: 800;
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+        
+        h2 {
+            color: #777777;
+            font-size: 1.2rem;
+            margin-top: 5px; 
+            margin-bottom: 15px; 
+            font-weight: 400;
+        }
+
+        /* 共通コンテナ: 注意書きとボタンの幅を統一する */
+        .content-wrapper {
+            max-width: 800px; 
+            width: min(90%, 800px); /* 画面幅の90%を使用し、800pxを超えないように調整 */
+            margin: 0 auto; 
+            padding-bottom: 30px; 
+        }
+
+        /* 注意書きボックス（カードデザイン） */
+        .warning-box {
+            background-color: #fff8f0; 
+            border: 1px solid #ffcc99; 
+            
+            /* 左右の端揃えのためにパディングを調整 */
+            padding: 30px 15px; 
+            margin: 15px 0 30px 0; 
+            
+            max-width: none; 
+            width: 100%;
+            box-sizing: border-box; 
+            
+            /* 角丸を25pxで統一 */
+            border-radius: 25px; 
+            
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .warning-box strong {
+            color: #FF0000; 
+            font-size: clamp(1.4rem, 4vw, 2.2rem);
+            display: block;
+            /* 【修正】下の要素との間隔を狭めました */
+            margin-bottom: 5px; 
+            font-weight: 700;
+        }
+
+        .warning-box p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: #444444;
+            font-weight: 500;
+            /* 【修正】段落の行間を狭めました */
+            margin: 2px 0;
+        }
+        
+        /* ボタンのコンテナ（横並び） */
+        .button-container {
+            display: flex;
+            flex-direction: row; 
+            justify-content: center;
+            gap: 30px; /* ボタン間のギャップ */
+            max-width: none; 
+            width: 100%;
+            margin: 0; 
+            padding: 0;
+        }
+        
+        /* ボタンのスタイル（長方形・横並び） */
+        .nav-button {
+            flex: 1; /* Flexboxに均等に広げさせる設定 */
+            min-width: 0; 
+            max-width: none;
+            
+            padding: 40px 0; 
+            
+            background-color: #7CDCFE; 
+            color: #ffffff; 
+            
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            text-decoration: none;
+            
+            border-radius: 25px; 
+            transition: all 0.2s ease-in-out;
+            border: none;
+            text-align: center;
+        }
+        
+
+        .nav-button:hover {
+            background-color: #4DCFFB; 
+            transform: scale(1.02); 
+        }
+
+        .button-text {
+            font-weight: 700;
+            line-height: 1.2;
+            width: 100%;
+            height: 100%;
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; /* 縦方向中央 */
+            align-items: center; /* 横方向中央 */
+        }
+
+        .line1 {
+            font-size: clamp(1.8rem, 5vw, 2.8rem); 
+            margin-bottom: 5px; 
+            font-weight: 900;
+        }
+
+        .line2 {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            font-weight: 700;
+        }
+        
+        /* === スマートフォン対応 (Responsive Design) === */
+        
+        /* タブレット・スマートフォン向け (850px以下) */
+        @media (max-width: 850px) { 
+            .content-wrapper {
+                /* 画面端からの余白を確保しつつ、最大幅を設定 */
+                width: 90vw;
+                max-width: 800px;
+                padding: 0 20px 30px; 
+            }
+            .header-content {
+                width: 100%;
+            }
+            .warning-box {
+                 /* 画面端の20pxパディングとバランスを取る */
+                padding: 30px 20px; 
+            }
+            .button-container {
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        /* スマートフォン向け (縦並び) (650px以下) */
+        @media (max-width: 650px) {
+            .button-container {
+                flex-direction: column; 
+                gap: 20px;
+            }
+            .nav-button {
+                width: 100%; /* 縦並びの時は幅を100%にする */
+                min-width: auto;
+                max-width: none;
+                padding: 30px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-content">
+        <h1>非公式TRPGガイド</h1>
+    </div>
+
+    <!-- 共通コンテナの開始: ここで最大幅と中央揃えを制御する -->
+    <div class="content-wrapper">
+        <div class="warning-box">
+            <strong>※注意※</strong>
+            <!-- HTML構造はユーザーの最新の入力内容を反映しています -->
+            <p>これは非公式ガイドです</p>
+            <p>SNSで呟く、雪哉(せつや)の許可なくの共有は禁止です</p>
+        </div>
+    
+        <div class="button-container">
+            <!-- 「TRPGとは？」ボタン (2行に分割) -->
+            <a href="trpg-intro.html" class="nav-button">
+                <div class="button-text">
+                    <span class="line1">TRPG</span>
+                    <span class="line2">とは？</span>
+                </div>
+            </a>
+    
+            <!-- 「CS作成はこちら」ボタン (2行) -->
+            <a href="cs-creation.html" class="nav-button">
+                <div class="button-text">
+                    <span class="line1">CS作成</span>
+                    <span class="line2">はこちら</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- 共通コンテナの終了 -->
+
+</body>
+</html>
